@@ -36,7 +36,7 @@ const projectList = [
     url: "https://linktr.ee/MuhammadHammadNazir",
   },
   {
-    title: "Machiine Learning Model using Cloud code",
+    title: "Machiine Learning Model using Cloud ",
     description:
       "Creating very simple model made up of the building blocks that can be used in any machine learning scenario!",
     url: "https://github.com/HammadNazir048/Creation-of-ML-model-on-Cloud-Code",
