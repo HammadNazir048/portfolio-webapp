@@ -23,7 +23,7 @@ import PropTypes from "prop-types";
 import image from "../images/Man-with-windowscreen.jpeg";
 
 const imageAltText =
-  "Big data analytics visualization technology with scientist analyzing information structure on screen with machine learning to extract strategical prediction for business, finance, internet of things ";
+  "Big analytics visualization technology with scientist analyzing information structure on screen with machine learning to extract strategical prediction for business, finance, internet of things ";
 const Home = ({ name, title }) => {
   return (
     <section id="home" className="min-height">
