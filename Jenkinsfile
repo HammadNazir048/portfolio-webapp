@@ -4,9 +4,6 @@ pipeline {
     AZURE_RESOURCE_GROUP = 'portfolio-webapp'
     WEBAPP_NAME = "portfolio-webapp"
     PACKAGE_NAME = "python-app-package.zip"
-    GIT_HTTP_MAX_REQUEST_BUFFER = '1048576000'  // Increase Git HTTP buffer size
-    GIT_TERMINAL_PROMPT = '0'  // Disable terminal prompts during Git operations
-    GIT_SSH_COMMAND = 'ssh -o ConnectTimeout=10 -o ServerAliveInterval=60 -o ServerAliveCountMax=5' // SSH timeout settings
   }
 
   stages {
