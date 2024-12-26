@@ -20,7 +20,7 @@ import PropTypes from "prop-types";
  * Need an image? Check out https://unsplash.com to download a photo you
  * freely use on your site.
  */
-import image from "../images/Man-with-windowscreen.jpeg";
+import image from "../images/bgimage.webp";
 
 const imageAltText =
   "Big analytics visualization technology with scientist analyzing information structure on screen with machine learning to extract strategical prediction for business, finance, internet of things ";
