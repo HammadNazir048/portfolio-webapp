@@ -19,9 +19,9 @@ import React from "react";
  * Need an image? Check out https://unsplash.com to download a photo you
  * freely use on your site.
  */
-import image from "../images/woman-with-tablet.jpg";
+import image from "../images/Man-with-windowscreen.jpeg";
 
-const imageAltText = "women with tablet";
+const imageAltText = "Man-with-windowscreen";
 
 /**
  * Project list
@@ -31,8 +31,8 @@ const imageAltText = "women with tablet";
  */
 const projectList = [
   {
-    title: "My Profiles",
-    description: "Here are my Social profiles where we connect",
+    title: "Tech Workplaces",
+    description: "Here are my Techincal workspaces where you can cheak out my work and send me connect",
     url: "https://linktr.ee/MuhammadHammadNazir",
   },
   {
@@ -42,7 +42,7 @@ const projectList = [
     url: "https://github.com/HammadNazir048/Creation-of-ML-model-on-Cloud-Code",
   },
   {
-    title: "problem solving",
+    title: "Building Databricks to use the ABFS driver to read and write data stored on Azure Data Lake Storage Gen2 and Blob Storage",
     description: "solutions of coding problems",
     url: "https://github.com/HammadNazir048/PF-Java",
   },
