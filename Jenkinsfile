@@ -1,61 +1,77 @@
 pipeline {
-  agent any
-  environment {
-    AZURE_RESOURCE_GROUP = 'portfolio-webapp'
-    WEBAPP_NAME = "portfolio-webapp"
-    PACKAGE_NAME = "python-app-package.zip"
-  }
+    agent any
 
-  stages {
-    stage('Workspace Cleanup') {
-      steps {
-        // Clean before build
-        cleanWs()
-        echo 'cleaning workspace...'
-      }
+    environment {
+        APACHE_WEB_DIR = '/var/www/html/'  // Apache's document root
+        AZURE_SERVER_IP = '52.165.82.190'  // Apache server IP
+        SSH_CREDENTIALS_ID = 'azure-ssh-key'  // Replace with your Jenkins SSH credentials ID
+        LOCAL_HTML_FILE = 'index.html'  // Path to your local HTML file
     }
 
-    stage('Checkout Git Branch') {
-      steps {
-        script {
-          // Increase Git buffer size
-          sh 'git config --global http.postBuffer 1048576000' // 1 GB
-          // Disable HTTP/2 (using HTTP/1.1 instead)
-          sh 'git config --global http.version HTTP/1.1'
-          // Checkout with shallow clone to reduce size
-          git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/HammadNazir048/portfolio-webapp.git', extensions: [[$class: 'CloneOption', depth: 1, noTags: false]]
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Checkout the code from GitHub
+                    checkout scm
+                }
+            }
         }
-      }
-    }
 
-    stage('Build Application') {
-      steps {
-        sh 'python3 -m pip install --upgrade pip'
-        sh 'pip3 install -r requirements.txt'
-      }
-    }
+        stage('Deploy HTML to Azure app services') {
+            steps {
+                script {
+                    // Debug: Print the contents of the index.html before deploying
+                    echo 'Contents of index.html:'
+                    sh 'cat index.html'
 
-    stage('Package Application') {
-      steps {
-        script {
-          /* Zip all contents inside code folder, excluding the root folder (code folder itself). */
-          sh "cd code && zip -r ../${PACKAGE_NAME} ./*"
-          // Print the contents of the current directory to verify the zip
-          sh "zipinfo ${PACKAGE_NAME}"
+                    // Copy index.html to the Apache server using SSH key
+                    sshagent(credentials: [SSH_CREDENTIALS_ID]) {
+                        sh """
+                            # Debug: Verify the remote Apache directory
+                            ssh azureuser@$AZURE_SERVER_IP 'echo "Remote Apache directory: $APACHE_WEB_DIR"'
+
+                            # Copy index.html to Apache server
+                            scp $LOCAL_HTML_FILE azureuser@$AZURE_SERVER_IP:$APACHE_WEB_DIR
+
+                            # Debug: List files in the Apache directory to confirm the file copy
+                            ssh azureuser@$AZURE_SERVER_IP 'ls -l $APACHE_WEB_DIR'
+                        """
+                    }
+                }
+            }
         }
-      }
+
+        stage('Restart Azure app services') {
+            steps {
+                script {
+                    // Restart Apache to load the new index.html
+                    sshagent(credentials: [SSH_CREDENTIALS_ID]) {
+                        sh """
+                            # Restart Apache to reflect changes
+                            ssh azureuser@$AZURE_SERVER_IP 'sudo systemctl restart apache2'
+
+                            # Debug: Check if Apache is running
+                            ssh azureuser@$AZURE_SERVER_IP 'sudo systemctl status apache2'
+                        """
+                    }
+                }
+            }
+        }
+
+        stage('Notify') {
+            steps {
+                echo 'Deployment complete. Apache has been updated with the new index.html.'
+            }
+        }
     }
 
-    stage('Login to Azure') {
-      steps {
-        script {
-          withCredentials([azureServicePrincipal('jenkins-pipeline-sp')]) {
-            sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
-            // Deploy to Azure WebApp
-            sh 'az webapp deploy --resource-group ${AZURE_RESOURCE_GROUP} --name ${WEBAPP_NAME} --src-path "${WORKSPACE}/${PACKAGE_NAME}"'
-          }
+    post {
+        success {
+            echo 'Job succeeded!'
         }
-      }
+        failure {
+            echo 'Job failed.'
+        }
     }
-  }
 }
