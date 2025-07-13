@@ -32,7 +32,7 @@ const imageAltText = "Man-with-windowscreen";
 const projectList = [
   {
     title: "AI Powered Video Workflow",
-    description: "An AI powered platform that simplifies video editing by intelligently gathering, analyzing, and enhancing multimedia content. It helps creators, editors, and storytellers focus on creativity and narrative flow by reducing manual effort, automating repetitive tasks, and improving overall editing efficiency.",
+    description: "An AI powered platform that simplifies video editing by intelligently gathering, analyzing, and enhancing multimedia content. It helps creators, editors, and storytellers focus on creativity and narrative flow by reducing manual effort, automating repetitive tasks, improving overall editing efficiency, and enabling faster, smarter content production at scale.",
     url: "https://github.com/HammadNazir048/PicTrail",
   },
   {
