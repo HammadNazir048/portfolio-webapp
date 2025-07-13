@@ -24,18 +24,18 @@ const imageAltText = "purple and blue abstract background";
  * Sort description that expands on your title on the Home component.
  */
 const description =
-  "I'm a BS Computer Science Student studying at Comsats University islamabad Attock Campus. I enjoy creating interactive interesting web applications in creative ways.";
+  "I am an aspiring Data Engineer who loves designing scalable data systems and solving complex data challenges, experienced in ETL/ELT pipelines, cloud platforms, and data modeling to build scalable and reliable solutions";
 /**
  * List of some of skills or technologies you work on, are learning,
  * passionate about, or enjoy,
  */
 const skillsList = [
-  "Web development",
-  "Machine Learning",
-  "Data Engineering",
-  "Web Application",
-  "Panetrating testing",
-  "Graphic design",
+  "Big Data Technologies",
+  "Web Scraping",
+  "Python Developer",
+  "Vector Databases",
+  "ELT/ETL Data Pipelines",
+  "Scalable Applications",
 ];
 
 /**
@@ -44,7 +44,7 @@ const skillsList = [
  * about you on a professional level.
  */
 const detailOrQuote =
-  "I am passionate about solving problems in new creative ways to drive innovation. By leveraging my UI/UX experience I continually look for new and better ways to make tech accessible by all.";
+  "Turning raw data into scalable, high performance systems using Python, ETL workflows, and modern data platforms";
 
 const About = () => {
   return (
