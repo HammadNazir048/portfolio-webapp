@@ -25,7 +25,7 @@ import "./styles.css";
  */
 const siteProps = {
   name: "Muhammmad Hammad Nazir ",
-  title: "Mern Stack Developer",
+  title: "AI Data Engineer",
   email: "mhn048c@gmail.com",
   gitHub: "HammadNazir048",
   instagram: "M_Hammad.Nazir",
