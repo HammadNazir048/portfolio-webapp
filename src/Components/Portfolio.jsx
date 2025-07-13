@@ -36,10 +36,10 @@ const projectList = [
     url: "https://linktr.ee/MuhammadHammadNazir",
   },
   {
-    title: "Machiine Learning Model using Cloud ",
+    title: "AI Driven Clean Energy Adoption",
     description:
-      "Creating very simple model made up of the building blocks that can be used in any machine learning scenario!",
-    url: "https://github.com/HammadNazir048/Creation-of-ML-model-on-Cloud-Code",
+      "Platform helping homeowners, businesses, and farmers in Pakistan transition to solar energy with ease. It offers AI-driven solar recommendations, verified installers, flexible financing, and after-sales support all in one place. By using real-time satellite data and local conditions.",
+    url: "https://www.solarlgao.com",
   },
   {
     title: "Building Databricks to use the ABFS driver to read and write data stored on Azure Data Lake Storage Gen2 and Blob Storage",
