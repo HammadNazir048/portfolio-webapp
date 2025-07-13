@@ -31,26 +31,26 @@ const imageAltText = "Man-with-windowscreen";
  */
 const projectList = [
   {
-    title: "Tech Workplaces",
-    description: "Here are my Techincal workspaces where you can cheak out my work and send me connect",
-    url: "https://linktr.ee/MuhammadHammadNazir",
+    title: "AI Powered Video Workflow",
+    description: "An AI powered tool that automates video editing by intelligently gathering and improving multimedia content helping creators focus more on storytelling, not timelines",
+    url: "https://github.com/HammadNazir048/PicTrail",
   },
   {
-    title: "AI Driven Clean Energy Adoption",
+    title: "Verified Marketplace for Clean Tech",
     description:
-      "Platform helping homeowners, businesses, and farmers in Pakistan transition to solar energy with ease. It offers AI-driven solar recommendations, verified installers, flexible financing, and after-sales support all in one place. By using real-time satellite data and local conditions.",
+      "Web Based Platform helping homeowners, businesses, and farmers in Pakistan transition to solar energy with ease. It offers AI-driven solar recommendations, verified installers, flexible financing, and after-sales support all in one place. By using real-time satellite data and local conditions.",
     url: "https://www.solarlgao.com",
   },
   {
-    title: "Building Databricks to use the ABFS driver to read and write data stored on Azure Data Lake Storage Gen2 and Blob Storage",
-    description: "solutions of coding problems",
-    url: "https://github.com/HammadNazir048/PF-Java",
+    title: "ML Pipeline for Classification Data",
+    description: "Machine Learning pipeline using Azure ML Designer to predict wine quality based on physicochemical properties. It leverages a drag-and-drop low-code approach to create, train, evaluate, and deploy ML models—all within the Azure ML Studio interface.",
+    url: "https://github.com/HammadNazir048/ml-pipeline-wine-azure",
   },
   {
-    title: "GitHub Codespaces and github.dev",
+    title: "My Medium Blogs",
     description:
-      "Video interview to explain when to use GitHub.dev versus GitHub Codespaces, and how best to use each tool.",
-    url: "https://www.youtube.com/watch?v=c3hHhRME_XI",
+      "I write about AI trends, community building, and real-world tech experiences. From exploring machine learning concepts to empowering developer communities, my blog reflects my journey through innovation and impact",
+    url: "https://medium.com/@mhn048c",
   },
 ];
 
